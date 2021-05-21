@@ -91,10 +91,8 @@ public class ServerHttp {
         String response = hash.substring(0, 32);
         // write http response
         outputWriter.print("HTTP/1.0 200 OK" + "\r\n" +
-                "Content-Type: text/plain" + "\r\n" +
-                "Date: " + new Date() + "\r\n" +
                 "Content-length: " + response.length() + "\r\n" + "\r\n" +
-                response + "\r\n"
+                response
         );
         if (this.HTTP_VERSION == 0) {
             outputWriter.close();
