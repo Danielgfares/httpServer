@@ -62,7 +62,7 @@ public class ServerHttp {
         String line = inputReader.readLine();
         if (line != null && !line.isEmpty()) {
             header = line;
-            System.out.println("client %d. [ " + this.id + " ] " + "requests: " + header);
+            System.out.println("Client [ " + this.id + " ] " + "requests: " + header);
             // request body - ignored
             while (line != null && !line.isEmpty()) {
                 //System.out.println(this.id + " - " + line);

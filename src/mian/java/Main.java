@@ -60,7 +60,7 @@ public class Main {
                 try {
                     // accepts connection and creates client socket
                     s2 = s1.accept();
-                    System.out.println("Client %d. [ " + id + " ] " + "connection established: " + s2.getInetAddress());
+                    System.out.println("Client [ " + id + " ] " + "connection established: " + s2.getInetAddress());
                     // starts a new thread with the new client socket
                     // this way the main thread here can iterate and wait for new connections
                     s2_thread = new ServerApplication(s2, id);
