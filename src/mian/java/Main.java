@@ -53,7 +53,7 @@ public class Main {
         ServerApplication s2_thread;
         boolean error = false;
 
-        s1 = startConnection(port);
+        s1 = startServer(port);
         if (s1 != null) {
             // iterate almost infinitely
             while (!error) {
@@ -82,12 +82,12 @@ public class Main {
     }
 
     /**
-     * Create a server socket and start connection
+     * Create a server socket and listen on the specific port
      *
      * @param port port where the socket will be listening
      * @return return the server socket created
      */
-    private static ServerSocket startConnection(int port) {
+    private static ServerSocket startServer(int port) {
         if (port != 0) {
             ServerSocket serverSocket;
             try {
@@ -103,6 +103,6 @@ public class Main {
     }
 
     public static void print_help() {
-        System.out.println("java –jar httpserver.jar -port portNumber");
+        System.out.println("Please try: \nJava –jar httpserver.jar -port portNumber");
     }
 }
