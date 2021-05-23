@@ -23,7 +23,7 @@ public class Main {
                     if (!args[0].equals("-port")) {
                         error = true;
                     }
-                } else if ( index == 1) {
+                } else if (index == 1) {
                     try {
                         port = Integer.parseInt(args[1]);
                     } catch (Exception e) {
@@ -33,7 +33,7 @@ public class Main {
                 }
                 index++;
             } while (!error && index < args.length);
-            if (error){
+            if (error) {
                 print_help();
             } else {
                 startConnection_RunApplication(port);
@@ -43,6 +43,7 @@ public class Main {
 
     /**
      * Given a port number a server socket will start listening on this port waiting for new connections
+     *
      * @param port port where the server will listen
      */
     private static void startConnection_RunApplication(int port) {
@@ -82,6 +83,7 @@ public class Main {
 
     /**
      * Create a server socket and start connection
+     *
      * @param port port where the socket will be listening
      * @return return the server socket created
      */

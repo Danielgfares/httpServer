@@ -53,7 +53,8 @@ public class ServerHttp {
 
 
     /**
-     * read http GET request
+     * Read http GET request
+     *
      * @throws IOException in case of bad http requests
      */
     public void readMessage() throws IOException {
@@ -80,7 +81,7 @@ public class ServerHttp {
     }
 
     /**
-     * Write and http response
+     * Write response
      */
     public void writeResponse() {
         // takes a random number between 1 - 256 to create a random hash
@@ -90,9 +91,11 @@ public class ServerHttp {
         // takes the first 32 characters from the formed hash to return 32 random hexadecimal characters.
         String response = hash.substring(0, 32);
         // write http response
-        outputWriter.print("HTTP/1.0 200 OK" + "\r\n" +
+        outputWriter.print("HTTP/1." + this.HTTP_VERSION + " 200 OK" + "\r\n" +
+                "Content-Type: text/plain" + "\r\n" +
+                "Date: " + new Date() + "\r\n" +
                 "Content-length: " + response.length() + "\r\n" + "\r\n" +
-                response
+                response + "\r\n"
         );
         if (this.HTTP_VERSION == 0) {
             outputWriter.close();

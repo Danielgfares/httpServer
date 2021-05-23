@@ -21,7 +21,7 @@ public class ServerApplication extends Thread {
             getClientSocket().setSoTimeout(60 * 1000);
             this.serverHttp = new ServerHttp(getClientSocket().getInputStream(), getClientSocket().getOutputStream(), _id);
         } catch (IOException e) {
-            System.err.println("An error has occurred. Closing connection with client %d. [ " + this.id + " ].\n");
+            System.err.println("An error has occurred: Closing connection with client [ " + this.id + " ].\n");
         }
     }
 
@@ -44,8 +44,8 @@ public class ServerApplication extends Thread {
                     throw new IOException("HTTP/1.0");
                 }
             } catch (IOException e) {
-                System.err.println("Client %d. [ " + this.id + " ] " + e.getMessage());
-                System.err.println("Client %d. [ " + this.id + " ] closing connection.");
+                System.err.println("Client [ " + this.id + " ] " + e.getMessage());
+                System.err.println("Client [ " + this.id + " ] closing connection.");
                 error = true;
             }
         }
